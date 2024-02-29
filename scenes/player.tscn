@@ -1,6 +1,7 @@
-[gd_scene load_steps=102 format=3 uid="uid://cyq3mqpo0txq6"]
+[gd_scene load_steps=103 format=3 uid="uid://cyq3mqpo0txq6"]
 
 [ext_resource type="Texture2D" uid="uid://btlly4gwv35q5" path="res://assets/characters/player/male/charater_3/clothes_1/climb_0.png" id="1_ev67v"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_su0xc"]
 [ext_resource type="Texture2D" uid="uid://r3bm2mu02ihp" path="res://assets/characters/player/male/charater_3/clothes_1/climb_1.png" id="2_q843j"]
 [ext_resource type="Texture2D" uid="uid://5n2o268qj1kd" path="res://assets/characters/player/male/charater_3/clothes_1/climb_2.png" id="3_p06hr"]
 [ext_resource type="Texture2D" uid="uid://ba0n8sot1kaua" path="res://assets/characters/player/male/charater_3/clothes_1/climb_3.png" id="4_4e02d"]
@@ -135,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"climb",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,7 +159,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_a401q")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("16_i3tkj")
 }, {
 "duration": 1.0,
@@ -167,12 +168,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_wa3yn")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("19_hfcdv")
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +184,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,7 +213,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -223,7 +224,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -263,7 +264,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"pickup_ground",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -298,7 +299,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"pickup_wall",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -321,7 +322,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"punch",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -350,7 +351,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -376,7 +377,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"talk",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -413,6 +414,12 @@ animations = [{
 "texture": ExtResource("83_033q0")
 }, {
 "duration": 1.0,
+"texture": ExtResource("82_hv1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_033q0")
+}, {
+"duration": 1.0,
 "texture": ExtResource("84_vskqg")
 }, {
 "duration": 1.0,
@@ -420,7 +427,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"use",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -443,7 +450,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"wait",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -472,18 +479,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mdsm"]
 radius = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+floor_snap_length = 0.0
+script = ExtResource("1_su0xc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dpn2")
-animation = &"use"
+animation = &"walk"
+frame_progress = 0.523503
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_1mdsm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_bottom = 750
+limit_smoothed = true
+drag_vertical_enabled = true
