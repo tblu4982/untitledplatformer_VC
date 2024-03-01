@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cyq3mqpo0txq6"]
+[gd_scene load_steps=108 format=3 uid="uid://cyq3mqpo0txq6"]
 
 [ext_resource type="Texture2D" uid="uid://btlly4gwv35q5" path="res://assets/characters/player/male/charater_3/clothes_1/climb_0.png" id="1_ev67v"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_su0xc"]
@@ -39,7 +39,10 @@
 [ext_resource type="Texture2D" uid="uid://emcvq51cdv78" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_2.png" id="36_fkpj7"]
 [ext_resource type="Texture2D" uid="uid://d3os76f31juh5" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_3.png" id="37_4i7bt"]
 [ext_resource type="Texture2D" uid="uid://clqnfb2p7gqkf" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_4.png" id="38_msc0n"]
+[ext_resource type="Texture2D" uid="uid://p7c1s35ins5w" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_3_alt.png" id="38_te8tl"]
 [ext_resource type="Texture2D" uid="uid://y7bpr0b1duib" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_5.png" id="39_hv1f0"]
+[ext_resource type="Texture2D" uid="uid://cbk6mhd487uwb" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_4_alt.png" id="39_mn358"]
+[ext_resource type="Texture2D" uid="uid://bad4e3xqj5cwv" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_4_alt1.png" id="40_i74me"]
 [ext_resource type="Texture2D" uid="uid://cp13wh0cbf68k" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_6.png" id="40_wj63g"]
 [ext_resource type="Texture2D" uid="uid://dmrs81nb6nvdr" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_ground_7.png" id="41_bwvl5"]
 [ext_resource type="Texture2D" uid="uid://eywqsx85wwmv" path="res://assets/characters/player/male/charater_3/clothes_1/pickup_wall_0.png" id="42_u7mck"]
@@ -244,6 +247,29 @@ animations = [{
 "loop": false,
 "name": &"land",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_sbkmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_uk3uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_fkpj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_te8tl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_mn358")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_i74me")
+}],
+"loop": true,
+"name": &"pickup_box",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -530,7 +556,8 @@ script = ExtResource("1_su0xc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dpn2")
-animation = &"punch_windup"
+animation = &"pickup_box"
+frame_progress = 0.92307
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
