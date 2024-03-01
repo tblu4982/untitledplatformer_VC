@@ -1,6 +1,7 @@
-[gd_scene load_steps=102 format=3 uid="uid://cyq3mqpo0txq6"]
+[gd_scene load_steps=105 format=3 uid="uid://cyq3mqpo0txq6"]
 
 [ext_resource type="Texture2D" uid="uid://btlly4gwv35q5" path="res://assets/characters/player/male/charater_3/clothes_1/climb_0.png" id="1_ev67v"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_su0xc"]
 [ext_resource type="Texture2D" uid="uid://r3bm2mu02ihp" path="res://assets/characters/player/male/charater_3/clothes_1/climb_1.png" id="2_q843j"]
 [ext_resource type="Texture2D" uid="uid://5n2o268qj1kd" path="res://assets/characters/player/male/charater_3/clothes_1/climb_2.png" id="3_p06hr"]
 [ext_resource type="Texture2D" uid="uid://ba0n8sot1kaua" path="res://assets/characters/player/male/charater_3/clothes_1/climb_3.png" id="4_4e02d"]
@@ -58,6 +59,8 @@
 [ext_resource type="Texture2D" uid="uid://bofepa1s6d6v3" path="res://assets/characters/player/male/charater_3/clothes_1/punch_4.png" id="56_c0cbw"]
 [ext_resource type="Texture2D" uid="uid://27auaimvk40x" path="res://assets/characters/player/male/charater_3/clothes_1/punch_5.png" id="57_ouobu"]
 [ext_resource type="Texture2D" uid="uid://dxhuaiyj67bhd" path="res://assets/characters/player/male/charater_3/clothes_1/run_0.png" id="58_oxj1x"]
+[ext_resource type="Texture2D" uid="uid://00h0hetq4hgr" path="res://assets/characters/player/male/charater_3/clothes_1/punch_0_alt.png" id="59_0bnin"]
+[ext_resource type="Texture2D" uid="uid://ik4ovcpt03u4" path="res://assets/characters/player/male/charater_3/clothes_1/punch_4_alt.png" id="59_d2nl6"]
 [ext_resource type="Texture2D" uid="uid://dnyt1e51mr8sk" path="res://assets/characters/player/male/charater_3/clothes_1/run_1.png" id="59_kq11u"]
 [ext_resource type="Texture2D" uid="uid://bkwe11ipvkna4" path="res://assets/characters/player/male/charater_3/clothes_1/run_2.png" id="60_mdxpj"]
 [ext_resource type="Texture2D" uid="uid://cpsknto1xkulj" path="res://assets/characters/player/male/charater_3/clothes_1/run_3.png" id="61_v52b1"]
@@ -135,9 +138,15 @@ animations = [{
 }],
 "loop": true,
 "name": &"climb",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_s2ca2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kg2cy")
+}, {
 "duration": 1.0,
 "texture": ExtResource("11_s2ca2")
 }, {
@@ -158,7 +167,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_a401q")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("16_i3tkj")
 }, {
 "duration": 1.0,
@@ -167,12 +176,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("18_wa3yn")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("19_hfcdv")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +192,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,7 +221,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -223,7 +232,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,7 +241,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("33_pibj1")
 }],
-"loop": true,
+"loop": false,
 "name": &"land",
 "speed": 5.0
 }, {
@@ -261,9 +270,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("41_bwvl5")
 }],
-"loop": true,
+"loop": false,
 "name": &"pickup_ground",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -296,9 +305,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("51_0tlny")
 }],
-"loop": true,
+"loop": false,
 "name": &"pickup_wall",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -319,9 +328,40 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("57_ouobu")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_mhbr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_0bnin")
+}],
+"loop": true,
+"name": &"punch charge",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_ouobu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_c0cbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_bdus8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_d2nl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_mhbr4")
+}],
+"loop": true,
+"name": &"punch_windup",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -350,7 +390,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -376,7 +416,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"talk",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -413,14 +453,20 @@ animations = [{
 "texture": ExtResource("83_033q0")
 }, {
 "duration": 1.0,
+"texture": ExtResource("82_hv1rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_033q0")
+}, {
+"duration": 1.0,
 "texture": ExtResource("84_vskqg")
 }, {
 "duration": 1.0,
 "texture": ExtResource("85_xh2rp")
 }],
-"loop": true,
+"loop": false,
 "name": &"use",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -443,7 +489,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"wait",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -472,18 +518,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1mdsm"]
 radius = 8.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+floor_snap_length = 0.0
+script = ExtResource("1_su0xc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dpn2")
-animation = &"use"
+animation = &"punch_windup"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_1mdsm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_bottom = 750
+limit_smoothed = true
+drag_vertical_enabled = true
