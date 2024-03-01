@@ -13,6 +13,7 @@ func _physics_process(delta):
 	var move_speed = SPEED
 	# Add the gravity.
 	if not is_on_floor():
+		is_punching = false
 		velocity.y += gravity * delta
 		if velocity.y < 0:
 			$AnimatedSprite2D.animation = "fall"
