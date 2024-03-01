@@ -1,9 +1,10 @@
+AnimationPlayer
+CollisionShape2D
 Camera2D
 Sprite2D
 ParallaxLayer
 ParallaxBackground
 CanvasLayer
-CollisionShape2D
 CollisionPolygon2D
 TileMap
 StaticBody2D
