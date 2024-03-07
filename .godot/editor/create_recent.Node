@@ -1,12 +1,14 @@
-AnimationPlayer
 CollisionShape2D
+CollisionPolygon2D
+Area2D
+Node
+VisibleOnScreenNotifier2D
+AnimationPlayer
 Camera2D
 Sprite2D
 ParallaxLayer
 ParallaxBackground
 CanvasLayer
-CollisionPolygon2D
 TileMap
 StaticBody2D
 AnimatedSprite2D
-CharacterBody2D

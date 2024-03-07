@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://df5ne8485lklm"]
+[gd_scene load_steps=77 format=3 uid="uid://df5ne8485lklm"]
 
 [ext_resource type="Texture2D" uid="uid://1ymswqgjwu2i" path="res://assets/particle_effects/player_effects/smoke_and_dust/dash_01.png" id="1_gncwd"]
 [ext_resource type="Texture2D" uid="uid://bqab0rgfnmfew" path="res://assets/particle_effects/player_effects/smoke_and_dust/dash_02.png" id="2_3f0ea"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bvc00mjfn41wx" path="res://assets/particle_effects/player_effects/smoke_and_dust/punch_heavy.png" id="5_p4qba"]
 [ext_resource type="Texture2D" uid="uid://cm2pm0jvq6gw4" path="res://assets/particle_effects/player_effects/smoke_and_dust/punch_light.png" id="6_j72ru"]
 [ext_resource type="Texture2D" uid="uid://brgr5x8bpkf2s" path="res://assets/particle_effects/player_effects/smoke_and_dust/punch_medium.png" id="7_xu1g1"]
+[ext_resource type="Script" path="res://scenes/player_effects.gd" id="8_baylq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iin2v"]
 atlas = ExtResource("1_gncwd")
@@ -306,7 +307,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7x07t")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_01",
 "speed": 5.0
 }, {
@@ -335,7 +336,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pskee")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_02",
 "speed": 5.0
 }, {
@@ -370,9 +371,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ddtw1")
 }],
-"loop": true,
+"loop": false,
 "name": &"lift_01",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -414,7 +415,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j87in")
 }],
-"loop": true,
+"loop": false,
 "name": &"pop_01",
 "speed": 5.0
 }, {
@@ -446,9 +447,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v0rhb")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch_heavy",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -478,9 +479,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_870id")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch_light",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -510,12 +511,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2jxu")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch_medium",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_nlcl2")
-animation = &"punch_heavy"
-frame_progress = 0.362323
+animation = &"punch_medium"
+frame = 8
+frame_progress = 1.0
+script = ExtResource("8_baylq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

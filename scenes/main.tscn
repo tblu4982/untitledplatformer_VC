@@ -1,17 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://rovsem2om6ar"]
 
 [ext_resource type="PackedScene" uid="uid://cyq3mqpo0txq6" path="res://scenes/player.tscn" id="1_2nwlm"]
+[ext_resource type="PackedScene" uid="uid://cvfl12422jk1j" path="res://scenes/interacts.tscn" id="1_io0i5"]
 [ext_resource type="PackedScene" uid="uid://df5ne8485lklm" path="res://scenes/player_effects.tscn" id="2_8gxva"]
-[ext_resource type="PackedScene" uid="uid://b4bd28f5hw166" path="res://scenes/platform_01.tscn" id="3_050ln"]
 [ext_resource type="PackedScene" uid="uid://dxp1lr34koawe" path="res://scenes/background.tscn" id="4_dk1hq"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node" type="Node"]
 
-[node name="TileMap" parent="." instance=ExtResource("3_050ln")]
-
-[node name="Smoke Effects" parent="." instance=ExtResource("2_8gxva")]
+[node name="Area2D" parent="." instance=ExtResource("1_io0i5")]
 
 [node name="Player" parent="." instance=ExtResource("1_2nwlm")]
 position = Vector2(41, 628)
 
+[node name="Smoke Effects" parent="." instance=ExtResource("2_8gxva")]
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_dk1hq")]
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="dash" from="Player" to="Smoke Effects" method="_on_player_dash"]
+[connection signal="jump" from="Player" to="Smoke Effects" method="_on_player_jump"]
+[connection signal="punch" from="Player" to="Smoke Effects" method="_on_player_punch"]
+[connection signal="smoke_call" from="Player" to="." method="_on_player_smoke_call"]

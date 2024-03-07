@@ -366,7 +366,7 @@ animations = [{
 "texture": ExtResource("59_0bnin")
 }],
 "loop": true,
-"name": &"punch charge",
+"name": &"punch_charge",
 "speed": 5.0
 }, {
 "frames": [{
@@ -387,7 +387,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"punch_windup",
-"speed": 6.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -556,8 +556,9 @@ script = ExtResource("1_su0xc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5dpn2")
-animation = &"pickup_box"
-frame_progress = 0.92307
+animation = &"idle"
+frame = 1
+frame_progress = 0.742192
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

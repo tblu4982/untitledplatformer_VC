@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvfl12422jk1j"]
+
+[ext_resource type="PackedScene" uid="uid://b4bd28f5hw166" path="res://scenes/platform_01.tscn" id="1_b8q3x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwbx4"]
+size = Vector2(18.4375, 384.313)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3687.78, 303.156)
+shape = SubResource("RectangleShape2D_lwbx4")
+
+[node name="TileMap" parent="." instance=ExtResource("1_b8q3x")]
